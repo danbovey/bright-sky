@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="83px" height="64px" viewBox="0 0 83 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_fog</title>
+    <defs>
+        <path d="M40.3145802,48.0926567 C45.5592956,48.0926567 49.8314679,43.6954196 49.8314679,38.4696539 C49.8314679,34.0724167 46.9385475,30.3975863 42.8699767,29.2000657 C42.7622458,25.2813499 39.5110461,22.1531925 35.5067184,22.1531925 C34.3429283,22.1531925 33.2463464,22.4350479 32.267379,22.9082146 C30.5357779,18.8604977 26.4711605,16.0239316 21.7324837,16.0239316 C16.5653543,16.0239316 12.2012648,19.4057103 10.7884088,24.0429384 C4.68085786,24.7697263 0,29.8197582 0,36.0322614 C0,42.5412239 5.07274133,48.0926567 11.7673762,48.0926567 L40.3145802,48.0926567 Z" id="path-1"></path>
+        <filter x="-28.1%" y="-31.2%" width="156.2%" height="187.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Weather-icons" transform="translate(-875.000000, -162.000000)">
+            <g id="icons" transform="translate(195.000000, 158.315619)">
+                <g id="icon_fog" transform="translate(688.838886, 6.684381)">
+                    <g id="cloud">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="mist" transform="translate(25.161114, 0.000000)" stroke="#FBFBFB" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+                        <path d="M0,3 C5.62874251,0.336430204 12.1017964,-0.995354694 18.2934132,0.869144163 C21.9520958,1.93457208 25.0479042,4.06542792 28.7065868,5.13085584 C34.8982036,6.99535469 41.3712575,5.6635698 47,3" id="Page-1"></path>
+                        <path d="M0,13 C5.62874251,10.3364302 12.1017964,9.00464531 18.2934132,10.8691442 C21.9520958,11.9345721 25.0479042,14.0654279 28.7065868,15.1308558 C34.8982036,16.9953547 41.3712575,15.6635698 47,13" id="Page-1" opacity="0.699999988"></path>
+                        <path d="M0,24 C5.62874251,21.3364302 12.1017964,20.0046453 18.2934132,21.8691442 C21.9520958,22.9345721 25.0479042,25.0654279 28.7065868,26.1308558 C34.8982036,27.9953547 41.3712575,26.6635698 47,24" id="Page-1" opacity="0.400000006"></path>
+                        <path d="M0,34 C5.62874251,31.3364302 12.1017964,30.0046453 18.2934132,31.8691442 C21.9520958,32.9345721 25.0479042,35.0654279 28.7065868,36.1308558 C34.8982036,37.9953547 41.3712575,36.6635698 47,34" id="Page-1" opacity="0.200000003"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
