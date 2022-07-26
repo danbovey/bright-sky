@@ -1,6 +1,6 @@
 {
-  "name": "my-razzle-app",
-  "version": "4.2.15",
+  "name": "bright-sky",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "dev": "NODE_OPTIONS=--openssl-legacy-provider razzle start",
