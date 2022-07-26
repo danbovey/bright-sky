@@ -1,9 +1,24 @@
 import styled from 'styled-components';
 
 export const Panel = styled.div`
+  position: relative;
   padding: 1rem;
   border-radius: 1rem;
   background: #eee;
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+`;
+
+export const PanelContent = styled.div`
+  position: relative;
+  z-index: 2;
 `;
 
 export const LocationArea = styled.div`

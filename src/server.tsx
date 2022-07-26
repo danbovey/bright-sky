@@ -3,6 +3,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { ServerStyleSheet } from 'styled-components';
+import path from 'path';
 
 import App from './App';
 import apiRouter from './api/index';
@@ -61,12 +62,13 @@ export const renderApp = (req: express.Request, res: express.Response) => {
       <meta charSet='utf-8' />
       <title>Bright Sky</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="msapplication-TileColor" content="#EE7D20">
       <meta name="theme-color" content="#ffffff">
+      <meta name="msapplication-TileColor" content="#ffffff">
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
       <link rel="manifest" href="/site.webmanifest">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff900d">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -84,7 +86,14 @@ export const renderApp = (req: express.Request, res: express.Response) => {
 
 const server = express()
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
+  // .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
+  .use(
+    express.static(
+      process.env.NODE_ENV === 'production'
+        ? path.join(__dirname, '../build/public')
+        : 'public'
+    )
+  )
   .use('/api', apiRouter)
   .get('/*', (req: express.Request, res: express.Response) => {
     const { html = '', redirect = false } = renderApp(req, res);

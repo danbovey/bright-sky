@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { format, fromUnixTime, getUnixTime } from 'date-fns';
+import { utcToZonedTime } from 'date-fns-tz';
 
 import {
   HourlyForecastArea,
@@ -14,9 +15,10 @@ import { DayForecast } from '../../api/types/weather';
 
 type ForecastProps = {
   hourlyForecast: DayForecast['hours'];
+  timezone: string;
 };
 
-const Forecast = ({ hourlyForecast }: ForecastProps) => {
+const Forecast = ({ hourlyForecast, timezone }: ForecastProps) => {
   const now = new Date();
   now.setUTCHours(new Date().getUTCHours(), 0, 0);
 
@@ -34,7 +36,10 @@ const Forecast = ({ hourlyForecast }: ForecastProps) => {
         {futureHours.slice(0, 12).map(hour => (
           <ForecastItem key={hour.datetimeEpoch}>
             <ForecastTime>
-              {format(fromUnixTime(hour.datetimeEpoch), 'hh aa')}
+              {format(
+                utcToZonedTime(fromUnixTime(hour.datetimeEpoch), timezone),
+                'hh aa'
+              )}
             </ForecastTime>
             <img
               src={`/assets/condition-icons/${hour.icon}.svg`}

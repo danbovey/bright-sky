@@ -1,12 +1,17 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { LocationMarkerIcon } from '@heroicons/react/outline';
 
 import { WeatherResponse } from '../../api/types/weather';
 import { LocationHookData } from '../../hooks/use-location';
 import useSettings from '../../hooks/use-settings';
+import TemperatureGraph from '../temperature-graph/temperature-graph';
 import Spinner from '../spinner/spinner';
+import { getConditionTheme } from './condition-theme';
+import { getConditionBackground } from './condition-background';
 import {
   Panel,
+  Background,
+  PanelContent,
   LocationArea,
   Temp,
   Degree,
@@ -18,12 +23,6 @@ import {
 type ConditionPanelProps = {
   location: LocationHookData;
   weather?: WeatherResponse;
-};
-
-const conditionThemes: Record<string, CSSProperties> = {
-  clear: { backgroundColor: '#487ac8', color: '#38588b' },
-  'partly-cloudy-day': { backgroundColor: '#c4e2ff', color: '#25619c' },
-  cloudy: { backgroundColor: '#d1dae3', color: '#757b81' }
 };
 
 const ConditionPanel = ({ location, weather }: ConditionPanelProps) => {
@@ -38,45 +37,56 @@ const ConditionPanel = ({ location, weather }: ConditionPanelProps) => {
     updateSettings({ ...settings, location: null });
   };
 
-  const { conditions, temp, icon, windspeed, winddir } =
-    weather.currentConditions;
+  const { conditions, temp, windspeed, winddir } = weather.currentConditions;
 
-  const conditionStyle =
-    icon in conditionThemes ? conditionThemes[icon] : conditionThemes.clear;
+  const conditionTheme = getConditionTheme(weather);
+  const conditionBackground = getConditionBackground(conditionTheme.name);
 
   return (
-    <Panel style={conditionStyle}>
-      <LocationArea onClick={resetLocation}>
-        <LocationMarkerIcon />{' '}
-        {location.isLoading ? (
-          <Spinner />
-        ) : location.data ? (
-          location.data.name
-        ) : (
-          ''
-        )}
-      </LocationArea>
-      <Temp>
-        {Math.round(temp)}
-        <Degree>°</Degree>
-      </Temp>
-      <Description>{conditions}</Description>
-      <Stats>
-        <div>
-          {windspeed}m/s
-          <WindDirection>
-            <div
-              title="{direction as compass bearings}"
-              style={{
-                transform: `rotate(${winddir}deg)`,
-                lineHeight: '24px'
-              }}
-            >
-              ↑
-            </div>
-          </WindDirection>
-        </div>
-      </Stats>
+    <Panel style={conditionTheme}>
+      {conditionBackground && (
+        <Background
+          style={{
+            opacity: 0.2,
+            backgroundRepeat: 'repeat',
+            backgroundImage: `url('/assets/condition-panel/${conditionBackground}.svg')`
+          }}
+        />
+      )}
+      <PanelContent>
+        <LocationArea onClick={resetLocation}>
+          <LocationMarkerIcon />{' '}
+          {location.isLoading ? (
+            <Spinner />
+          ) : location.data ? (
+            location.data.name
+          ) : (
+            ''
+          )}
+        </LocationArea>
+        <Temp>
+          {Math.round(temp)}
+          <Degree>°</Degree>
+        </Temp>
+        <Description>{conditions}</Description>
+        <Stats>
+          <div>
+            {windspeed}m/s
+            <WindDirection>
+              <div
+                title="{direction as compass bearings}"
+                style={{
+                  transform: `rotate(${winddir}deg)`,
+                  lineHeight: '24px'
+                }}
+              >
+                ↑
+              </div>
+            </WindDirection>
+          </div>
+        </Stats>
+        <TemperatureGraph weather={weather} conditionTheme={conditionTheme} />
+      </PanelContent>
     </Panel>
   );
 };

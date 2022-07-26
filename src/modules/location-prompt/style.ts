@@ -24,8 +24,8 @@ export const PromptIntro = styled.div`
   margin-bottom: 2em;
   text-align: center;
 
-  img {
-    width: 128px;
+  svg {
+    width: 48px;
   }
 `;
 
@@ -83,12 +83,9 @@ export const GeolocateButton = styled.button`
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  appearance: none;
-  border: none;
   border-radius: 8px;
   background: #efefef;
   width: 100%;
-  font: inherit;
 
   svg {
     width: 24px;

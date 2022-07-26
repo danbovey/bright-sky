@@ -43,14 +43,17 @@ const Home = () => {
 
   return (
     <Container>
-      {(weather.isIdle || weather.isLoading) && (
+      {!!settings.location && (weather.isIdle || weather.isLoading) && (
         <LoadingSplash>
           <Spinner />
         </LoadingSplash>
       )}
       <ConditionPanel location={location} weather={weather.data} />
       {weather.isSuccess && weather.data.days.length > 0 && (
-        <Forecast hourlyForecast={weather.data.days[0].hours} />
+        <Forecast
+          hourlyForecast={weather.data.days[0].hours}
+          timezone={weather.data.timezone}
+        />
       )}
     </Container>
   );

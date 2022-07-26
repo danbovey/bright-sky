@@ -14,6 +14,13 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Albert Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     color: #1f1e31;
   }
+
+  button {
+    appearance: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;

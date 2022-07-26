@@ -17,7 +17,7 @@ export const HourlyForecastHeader = styled.header`
   }
 
   a {
-    color: #00e;
+    color: #24609c;
   }
 `;
 
