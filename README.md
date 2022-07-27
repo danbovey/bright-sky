@@ -1,8 +1,8 @@
 # Bright Sky
 
-> 🔆 A weather PWA to replace Dark Sky!
+> 🌤 A weather PWA to replace Dark Sky!
 
-## Devlopment
+## Development
 
 Use nvm to install the correct version of node.
 
