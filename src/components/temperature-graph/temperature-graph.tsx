@@ -6,7 +6,8 @@ import {
   LineChart,
   ReferenceLine,
   ResponsiveContainer,
-  XAxis
+  XAxis,
+  YAxis
 } from 'recharts';
 
 import { WeatherResponse } from '../../api/types/weather';
@@ -70,13 +71,12 @@ const TemperatureGraph = ({
     dotStroke: conditionTheme.dotStroke
   }));
 
-  const [r, g, b] = conditionTheme.overlayBackgroundColorRgb;
+  const { overlayBackgroundColor, overlayBackgroundColorRgb } = conditionTheme;
+  const [r, g, b] = overlayBackgroundColorRgb;
   const gradientBackground = `linear-gradient(to right, rgba(${r},${g},${b},1) 0%,rgba(${r},${g},${b},0) 12%,rgba(${r},${g},${b},0) 88%,rgba(${r},${g},${b},1) 100%)`;
 
   return (
-    <GraphArea
-      style={{ backgroundColor: conditionTheme.overlayBackgroundColor }}
-    >
+    <GraphArea style={{ backgroundColor: overlayBackgroundColor }}>
       <h6>Temperature</h6>
       <ResponsiveContainer width="100%" height={150}>
         <LineChart width={300} height={150} data={data}>
@@ -93,6 +93,7 @@ const TemperatureGraph = ({
             allowDataOverflow
             hide
           />
+          <YAxis domain={['auto', 'auto']} hide />
           <Line
             type="monotoneX"
             dataKey="temp"
