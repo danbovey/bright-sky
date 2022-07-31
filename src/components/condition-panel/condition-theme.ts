@@ -24,7 +24,7 @@ const conditionThemes: Record<string, ConditionTheme> = {
     backgroundColor: '#487ac8',
     overlayBackgroundColor: '#d5eaff',
     overlayBackgroundColorRgb: [213, 234, 255],
-    dotStroke: '#f00'
+    dotStroke: '#487ac8'
   },
   'clear-night': {
     name: 'clear-night',

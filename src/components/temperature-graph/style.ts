@@ -14,13 +14,15 @@ export const GraphArea = styled.div`
   }
 `;
 
+export const graphHeight = 100;
+
 export const GraphGradientOverlay = styled.div`
   position: absolute;
   display: block;
   left: 16px;
   right: 16px;
   top: 36px;
-  height: 150px;
+  height: ${graphHeight}px;
   background: rgba(255, 255, 255, 0.4);
   content: '';
 `;
@@ -31,6 +33,14 @@ export const Labels = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
+
+  h3 {
+    margin: 0.5em 0;
+  }
+`;
+
+export const TimeOfDay = styled.span`
+  font-size: 0.9rem;
 `;
 
 export const Degree = styled.span`
