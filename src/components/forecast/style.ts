@@ -33,7 +33,7 @@ export const HourlyForecastRow = styled.div`
 
   img {
     max-width: 100%;
-    height: 64px;
+    height: 56px;
     padding: 8px;
   }
 `;

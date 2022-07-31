@@ -42,6 +42,14 @@ const conditionThemes: Record<string, ConditionTheme> = {
     overlayBackgroundColorRgb: [209, 232, 255],
     dotStroke: '#badcff'
   },
+  'partly-cloudy-night': {
+    name: 'clear-night',
+    color: '#fff',
+    backgroundColor: '#333c42',
+    overlayBackgroundColor: '#5c6367',
+    overlayBackgroundColorRgb: [92, 99, 103],
+    dotStroke: '#b9dcff'
+  },
   cloudy: {
     name: 'cloudy',
     color: '#757b81',
@@ -52,11 +60,11 @@ const conditionThemes: Record<string, ConditionTheme> = {
   },
   rain: {
     name: 'rain',
-    backgroundColor: '#c4e2ff',
-    color: '#24609c',
-    overlayBackgroundColor: '#f00',
-    overlayBackgroundColorRgb: [255, 255, 255],
-    dotStroke: '#f00'
+    color: '#fff',
+    backgroundColor: '#627685',
+    overlayBackgroundColor: '#81929d',
+    overlayBackgroundColorRgb: [129, 146, 157],
+    dotStroke: '#b9dcff'
   },
   'rain-night': {
     name: 'rain-night',
@@ -91,6 +99,7 @@ export const getConditionTheme = (weather: WeatherResponse) => {
     ? conditionThemes['clear-night']
     : conditionThemes.clear;
 
+  console.log(icon);
   const conditionStyle =
     icon in conditionThemes ? conditionThemes[icon] : defaultTheme;
 
