@@ -10,16 +10,18 @@ import { DangerText } from '../../components/text/text';
 import Search from './search';
 import { PromptOverlay, Prompt, PromptIntro, GeolocateButton } from './style';
 
+const EmptyPrompt = (
+  <PromptOverlay style={{ display: 'none' }}>
+    <Prompt />
+  </PromptOverlay>
+);
+
 const LocationPrompt = () => {
   const [settings, updateSettings] = useSettings();
   const location = useGeolocationPosition(settings);
 
   if (typeof window === 'undefined') {
-    return (
-      <PromptOverlay>
-        <Prompt />
-      </PromptOverlay>
-    );
+    return EmptyPrompt;
   }
 
   const askPermissions = () => {
@@ -100,7 +102,7 @@ const LocationPrompt = () => {
     );
   }
 
-  return null;
+  return EmptyPrompt;
 };
 
 export default LocationPrompt;

@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import GlobalStyles from './global-styles';
 import LocationPrompt from './modules/location-prompt/location-prompt';
-import Home from './Home';
+import Home from './modules/home/home';
 import NotFoundPage from './modules/not-found/not-found';
 
 const queryClient = new QueryClient();

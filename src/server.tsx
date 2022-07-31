@@ -50,6 +50,8 @@ export const renderApp = (req: express.Request, res: express.Response) => {
 
   const styleTags = sheet.getStyleTags();
 
+  sheet.seal();
+
   if (context.url) {
     return { redirect: context.url };
   }

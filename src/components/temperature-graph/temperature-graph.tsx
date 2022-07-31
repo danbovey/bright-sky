@@ -2,16 +2,16 @@ import React from 'react';
 import {
   Dot,
   DotProps,
-  LineChart,
   Line,
+  LineChart,
+  ReferenceLine,
   ResponsiveContainer,
-  XAxis,
-  ReferenceLine
+  XAxis
 } from 'recharts';
 
 import { WeatherResponse } from '../../api/types/weather';
 import { ConditionTheme } from '../condition-panel/condition-theme';
-import { GraphArea, GraphGradientOverlay, Labels } from './style';
+import { GraphArea, GraphGradientOverlay, Labels, Degree } from './style';
 
 type TemperatureGraphProps = {
   conditionTheme: ConditionTheme;
@@ -63,7 +63,7 @@ const TemperatureGraph = ({
     hours[20]
   ];
 
-  const data: TempPayload[] = sample.map((hour, index) => ({
+  const data: TempPayload[] = sample.map(hour => ({
     date: hour.datetimeEpoch,
     temp: hour.temp,
     color: conditionTheme.color,
@@ -80,10 +80,10 @@ const TemperatureGraph = ({
       <h6>Temperature</h6>
       <ResponsiveContainer width="100%" height={150}>
         <LineChart width={300} height={150} data={data}>
-          <ReferenceLine x={data[1].date} stroke="rgba(255, 255, 255, 0.1)" />
-          <ReferenceLine x={data[2].date} stroke="rgba(255, 255, 255, 0.1)" />
-          <ReferenceLine x={data[3].date} stroke="rgba(255, 255, 255, 0.1)" />
-          <ReferenceLine x={data[4].date} stroke="rgba(255, 255, 255, 0.1)" />
+          <ReferenceLine x={data[1].date} stroke="rgba(255, 255, 255, 0.2)" />
+          <ReferenceLine x={data[2].date} stroke="rgba(255, 255, 255, 0.2)" />
+          <ReferenceLine x={data[3].date} stroke="rgba(255, 255, 255, 0.2)" />
+          <ReferenceLine x={data[4].date} stroke="rgba(255, 255, 255, 0.2)" />
           <XAxis
             dataKey="date"
             type="number"
@@ -105,19 +105,31 @@ const TemperatureGraph = ({
       <Labels>
         <div>
           Morning
-          <h3>{Math.round(sample[1].temp)}</h3>
+          <h3>
+            {Math.round(sample[1].temp)}
+            <Degree>°</Degree>
+          </h3>
         </div>
         <div>
           Afternoon
-          <h3>{Math.round(sample[2].temp)}</h3>
+          <h3>
+            {Math.round(sample[2].temp)}
+            <Degree>°</Degree>
+          </h3>
         </div>
         <div>
           Evening
-          <h3>{Math.round(sample[3].temp)}</h3>
+          <h3>
+            {Math.round(sample[3].temp)}
+            <Degree>°</Degree>
+          </h3>
         </div>
         <div>
           Night
-          <h3>{Math.round(sample[4].temp)}</h3>
+          <h3>
+            {Math.round(sample[4].temp)}
+            <Degree>°</Degree>
+          </h3>
         </div>
       </Labels>
     </GraphArea>

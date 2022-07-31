@@ -1,13 +1,15 @@
 {
-  "presets": ["razzle/babel"],
+  "presets": [
+    "razzle/babel"
+  ],
   "plugins": [
-    "@babel/plugin-proposal-optional-chaining",
     [
       "babel-plugin-styled-components",
       {
         "displayName": true,
         "ssr": true
       }
-    ]
+    ],
+    "@babel/plugin-proposal-optional-chaining"
   ]
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 
-import { WeatherResponse } from './api/types/weather';
-import useLocation, { LocationResult } from './hooks/use-location';
-import useSettings, { Settings } from './hooks/use-settings';
-import Container from './components/container/container';
-import ConditionPanel from './components/condition-panel/condition-panel';
-import Forecast from './components/forecast/forecast';
-import Spinner from './components/spinner/spinner';
-import { LoadingSplash } from './style';
+import { WeatherResponse } from '../../api/types/weather';
+import useLocation, { LocationResult } from '../../hooks/use-location';
+import useSettings, { Settings } from '../../hooks/use-settings';
+import Container from '../../components/container/container';
+import ConditionPanel from '../../components/condition-panel/condition-panel';
+import Forecast from '../../components/forecast/forecast';
+import Spinner from '../../components/spinner/spinner';
+import { LoadingSplash } from '../../style';
 
 const fetchWeather = async (location?: LocationResult) => {
   if (!location) {

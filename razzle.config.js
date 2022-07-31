@@ -2,8 +2,14 @@
 const addSvgrWebpack = require('./tools/svgr-webpack');
 
 module.exports = {
+  options: {
+    verbose: true,
+    enableReactRefresh: true,
+    enableTargetBabelrc: false,
+    enableBabelCache: false
+  },
   plugins: [{ name: 'typescript', options: { useBabel: true } }, 'offline'],
-  modifyWebpackConfig: ({ env, webpackConfig }) => {
+  modifyWebpackConfig: ({ webpackConfig }) => {
     addSvgrWebpack(webpackConfig);
 
     return webpackConfig;

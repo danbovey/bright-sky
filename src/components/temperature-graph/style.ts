@@ -32,3 +32,8 @@ export const Labels = styled.div`
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
 `;
+
+export const Degree = styled.span`
+  position: absolute;
+  font-family: Arial, sans-serif;
+`;

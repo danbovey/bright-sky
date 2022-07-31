@@ -18,6 +18,13 @@ export const Prompt = styled.div`
   padding: 2.5rem 2.5rem 4rem;
   background: #fff;
   border-radius: 32px 32px 0 0;
+
+  @media (min-width: 992px) {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 720px;
+    width: initial;
+  }
 `;
 
 export const PromptIntro = styled.div`

@@ -22,6 +22,7 @@ export const getLocation = async (req: Request, res: Response) => {
 
   if (typeof lat === 'undefined' || typeof lng === 'undefined') {
     res.status(400).json({ error: 'lat and lng are required' });
+    return;
   }
 
   let location;
